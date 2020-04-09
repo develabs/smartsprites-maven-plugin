@@ -22,11 +22,23 @@
         <relativePath />
     </parent>
 
-    <groupId>com.github.hazendaz.maven</groupId>
+    <groupId>com.develabs</groupId>
     <artifactId>smartsprites-maven-plugin</artifactId>
-    <version>2.0.1-SNAPSHOT</version>
+    <version>2.0.1</version>
     <packaging>maven-plugin</packaging>
 
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        
+        <repository>
+            <id>github-develabs-smartsprites</id>
+            <url>https://maven.pkg.github.com/develabs/smartsprites</url>
+        </repository>
+    </repositories>
+    
     <name>smartsprites-maven-plugin</name>
     <description>
       Maven Plugin for the open-source tool smartsprites (http://csssprites.org/).
@@ -64,6 +76,10 @@
             <name>GitHub Pages</name>
             <url>github:https://hazendaz.github.io/smartsprites-maven-plugin/</url>
         </site>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/develabs/smartsprites-maven-plugin</url>
+        </repository>        
     </distributionManagement>
 
     <properties>
@@ -93,9 +109,9 @@
 
         <!-- Smart Sprites -->
         <dependency>
-            <groupId>com.carrotsearch</groupId>
+            <groupId>com.develabs</groupId>
             <artifactId>smartsprites</artifactId>
-            <version>0.2.13</version>
+            <version>0.2.14</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
