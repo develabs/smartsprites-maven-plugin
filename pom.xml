@@ -22,17 +22,18 @@
         <relativePath />
     </parent>
 
-    <groupId>com.github.hazendaz.maven</groupId>
+    <groupId>com.develabs</groupId>
     <artifactId>smartsprites-maven-plugin</artifactId>
-    <version>2.0.1-SNAPSHOT</version>
+    <version>2.0.0</version>
     <packaging>maven-plugin</packaging>
 
     <name>smartsprites-maven-plugin</name>
     <description>
       Maven Plugin for the open-source tool smartsprites (http://csssprites.org/).
       It allows you the integration of the generation of spritesheets in your build process.
+      Uses com.develabs:smartsprites instead of com.carrotsearch:smartsprites.
     </description>
-    <url>http://github.com/hazendaz/smartsprites-maven-plugin</url>
+    <url>http://github.com/develabs/smartsprites-maven-plugin</url>
     <inceptionYear>2012</inceptionYear>
     <licenses>
         <license>
@@ -45,9 +46,9 @@
     </prerequisites>
 
     <scm>
-        <url>https://github.com/hazendaz/smartsprites-maven-plugin</url>
-        <connection>scm:git:ssh://github.com/hazendaz/smartsprites-maven-plugin.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/hazendaz/smartsprites-maven-plugin.git</developerConnection>
+        <url>https://github.com/develabs/smartsprites-maven-plugin</url>
+        <connection>scm:git:ssh://github.com/develabs/smartsprites-maven-plugin.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/develabs/smartsprites-maven-plugin.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
     <issueManagement>
@@ -93,9 +94,9 @@
 
         <!-- Smart Sprites -->
         <dependency>
-            <groupId>com.carrotsearch</groupId>
+            <groupId>com.develabs</groupId>
             <artifactId>smartsprites</artifactId>
-            <version>0.2.13</version>
+            <version>0.3.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
