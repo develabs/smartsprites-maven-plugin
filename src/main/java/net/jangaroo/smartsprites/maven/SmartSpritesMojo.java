@@ -264,7 +264,7 @@ public class SmartSpritesMojo extends AbstractMojo {
         // Configure the SmartSpritesParameters for execution
         SmartSpritesParameters smartParameters;
 
-        smartParameters = new SmartSpritesParameters(rootDirPathTemp, cssFilesTemp, outputDirPathTemp,
+        smartParameters = new SmartSpritesParameters(rootDirPathTemp, cssFilesTemp, null, "", outputDirPathTemp,
                 documentRootDirPathTemp, msgLogLevel, this.cssFileSuffix, pngDepth, this.spritePngIeSix,
                 this.cssFileEncoding);
 
