@@ -162,13 +162,35 @@ public class SmartSpritesMojo extends AbstractMojo {
      * cssFilesWithOutputDirMode (cssFiles are set, as well as rootDir and outputDir)
      */
     @Parameter(defaultValue = SmartSpritesMojo.ROOT_DIR_MODE, property = "workingMode")
-    private String              workingMode;
+    private String workingMode;
 
     /**
      * To enable skipping run of plugin.
      */
     @Parameter(defaultValue = "false", alias = "skip", property = "skip")
-    private Boolean             skip;
+    private Boolean skip;
+
+    /**
+     * Path to directory where sprites will be saved (if relative path is provided, sprite will be saved relative to css
+     * file in which its entries reside, if absolute path is provided, sprite will be saved on path where
+     * documentRootDirPath is seen as root and calculated path will look like: documentRootDirPath/providedAbsolutePath
+     */
+    @Parameter(property = "spriteDirPath")
+    private String spriteDirPath;
+
+    /**
+     * List of dir paths that will be ignored during smartsprites css scanning phase. These paths are relative to
+     * rootDirPath so actual ignoreDirPaths values will look like [rootDirPath/providedValue[0],
+     * rootDirPath/providedValue[1]]
+     */
+    @Parameter(property = "ignoreDirPaths")
+    private List<String> ignoreDirPaths;
+
+    /**
+     * Suffix to be appended to the processed sprite file name
+     */
+    @Parameter(property = "spriteFileSuffix")
+    private String spriteFileSuffix;
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
@@ -264,9 +286,9 @@ public class SmartSpritesMojo extends AbstractMojo {
         // Configure the SmartSpritesParameters for execution
         SmartSpritesParameters smartParameters;
 
-        smartParameters = new SmartSpritesParameters(rootDirPathTemp, cssFilesTemp, null, "", outputDirPathTemp,
-                documentRootDirPathTemp, msgLogLevel, this.cssFileSuffix, pngDepth, this.spritePngIeSix,
-                this.cssFileEncoding);
+        smartParameters = new SmartSpritesParameters(rootDirPathTemp, cssFilesTemp, spriteFileSuffix, ignoreDirPaths,
+                spriteDirPath, outputDirPathTemp, documentRootDirPathTemp, msgLogLevel, this.cssFileSuffix, pngDepth,
+                this.spritePngIeSix, this.cssFileEncoding);
 
         final MessageLog messageLog = new MessageLog(
                 new PrintStreamMessageSink(System.out, smartParameters.getLogLevel()));
